@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # generate a geometry using the opencascade interface
 # if called as a standalone script, save that geometry
 # to a step file named 'cathodeTargetArray.step'
@@ -69,7 +71,6 @@ def generate_line_targets(targetFile):
                   Pnt(*(pointA + \
                         np.array([length, line_radius, line_thickness]))))
         angle = np.arctan2((pointB[1] - pointA[1]), (pointB[0] - pointA[0]))
-        print (np.degrees(angle))
         box = box.Rotate(Axis(Pnt(*pointA),
                               Z),
                          np.degrees(angle))
@@ -97,11 +98,11 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description = 'use netgen to mesh a geometry (in step format) and export')
     parser.add_argument('-c', '--cathodeFile',
-                        default = '',
-                        help = 'input cathode brep')
+                        default = 'cathodeGeometries/cathode.step',
+                        help = 'input cathode brep (default: cathodeGeometries/cathode.step)')
     parser.add_argument('-t', '--targetFile',
-                        default = '',
-                        help = 'input target layout yaml')
+                        default = 'targetConfiguration.yaml',
+                        help = 'input target layout yaml (default: targetConfiguration.yaml)')
     parser.add_argument('-o', '--outfileName',
                         default = 'cathodeTargetArray.step',
                         help = 'output step file name (default: cathodeTargetArray.step)')
