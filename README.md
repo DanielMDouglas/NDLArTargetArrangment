@@ -1,6 +1,10 @@
 # NDLArTargets
 This package provides some utilities for building CAD models of DUNE ND-LAr cathodes with attached photocathodes.  These can be used as inputs for CAD workflows downstream.  The advantage of this program is to provide a programmatic way to generate target arrays, as well as producing yaml descriptions of the target arrangments that can be used in analysis workflows
 
+## Installation
+
+To install this package using pip, just use `pip install .` in the parent directory of this package.
+
 ## Usage
 
 The package provides two main pieces of code, which can be called as scripts.  The first step is to generate a target description yaml using `target_yaml_generator.py`:
